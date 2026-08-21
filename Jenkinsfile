@@ -38,10 +38,10 @@ pipeline {
                     sh 'docker rm portfolio-container || true'
                     
                     // Pull the latest image explicitly from Docker Hub
-                    sh 'docker pull ${env.IMAGE_NAME}:${env.TAG}'
+                    sh "docker pull ${IMAGE_NAME}:${TAG}"
                     
                     // Run the newly pulled container on port 80
-                    sh 'docker run -d -p 80:80 --name portfolio-container ${env.IMAGE_NAME}:${env.TAG}'
+                    sh "docker run -d -p 80:80 --name portfolio-container ${IMAGE_NAME}:${TAG}"
                 }
             }
         }
