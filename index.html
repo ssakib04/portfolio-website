@@ -476,11 +476,20 @@ nav{
 }
 
 .hero h1{
-  font-size: clamp(2.4rem, 7.5vw, 6.2rem);
-  line-height: 0.95;
+  font-size: clamp(2.2rem, 6.2vw, 5.8rem);
+  line-height: 1;
   font-weight: 700;
-  max-width: 14ch;
+  white-space: nowrap;           /* forces single line */
+  width: fit-content;
 }
+@media (max-width: 540px){
+  .hero h1{
+    font-size: clamp(1.8rem, 10vw, 2.6rem);
+    white-space: normal;         /* allow wrap on very small screens */
+    max-width: 100%;
+  }
+}
+
 .hero h1 .line{ display:block; overflow:hidden; }
 .hero h1 .char{
   display: inline-block;
@@ -1465,7 +1474,6 @@ footer .fl{
       <div class="eyebrow"><span class="blink"></span> AI &amp; WEB DEVELOPER · DHAKA, BANGLADESH</div>
       <h1>
         <span class="line" id="heroLine1"></span>
-        <span class="line" id="heroLine2"></span>
       </h1>
       <div class="hero-role mono">I build <span id="typedRole" style="color:var(--amber); margin-left:8px; font-weight:700;">AI agents</span><span class="caret"></span></div>
       <p class="hero-sub">Currently an AI Trainee at BJIT. I design and ship the systems that let software act on its own — agents, automations, and the interfaces wrapped around them.</p>
@@ -1829,9 +1837,8 @@ footer .fl{
 
   /* Split hero heading with staggered letter animation */
   window.addEventListener('DOMContentLoaded', () => {
-    splitText(document.getElementById('heroLine1'), 'Kaji Sadman', 0.4);
-    splitText(document.getElementById('heroLine2'), 'Sakib.', 0.9);
-  });
+  splitText(document.getElementById('heroLine1'), 'Kaji Sadman Sakib.', 0.4);
+    });
 
   /* ============================================================
      CUSTOM CURSOR + MAGNETIC BUTTONS
