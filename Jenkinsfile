@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-secret-id')
-        IMAGE_NAME = '<dockerhub-username>/portfolio-image'
+        IMAGE_NAME = 'shafat04/portfolio-image'
         TAG = 'latest'
     }
     stages {
